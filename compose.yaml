@@ -1,0 +1,34 @@
+services:
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    # pull_policy: always
+    restart: always
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
+
+  minio:
+    image: minio/minio:latest
+    # pull_policy: always
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - minio-data:/mnt/data
+      # - xxxxxxx:/root/.minio/certs:ro
+    environment:
+      - "MINIO_VOLUMES=/mnt/data"
+      - "MINIO_ROOT_USER=${MINIO_ROOT_USER}"
+      - "MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}"
+    healthcheck:
+      test: curl --fail http://localhost:9000/minio/health/live || exit 1
+      interval: 1m30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    ports:
+      - 9000:9000
+      - 9090:9090
+    command: minio server --console-address ":9090"
+
+volumes:
+  minio-data:
+    name: minio-data
