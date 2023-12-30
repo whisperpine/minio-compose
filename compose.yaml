@@ -18,15 +18,9 @@ services:
       - "MINIO_VOLUMES=/mnt/data"
       - "MINIO_ROOT_USER=${MINIO_ROOT_USER}"
       - "MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD}"
-    healthcheck:
-      test: curl --fail http://localhost:9000/minio/health/live || exit 1
-      interval: 1m30s
-      timeout: 5s
-      retries: 3
-      start_period: 10s
     ports:
-      - 9000:9000
-      - 9090:9090
+      - "9000:9000"
+      - "9090:9090"
     command: minio server --console-address ":9090"
 
 volumes:
