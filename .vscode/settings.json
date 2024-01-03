@@ -1,9 +1,15 @@
 {
     "files.associations": {
         "LICENSE": "plaintext",
-        "**/*.env": "ini"
+        "**/*.env": "ini",
+        "nginx.conf": "nginx",
+        "**/conf.d/*.conf": "nginx",
+        "**/*.conf.template": "nginx",
     },
     "files.readonlyInclude": {
         "LICENSE": true
-    }
+    },
+    "cSpell.words": [
+        "envsubst"
+    ]
 }
