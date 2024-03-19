@@ -19,6 +19,13 @@ server {
     proxy_buffering off;
     proxy_request_buffering off;
 
+    ######## Let's Encrypt and certbot ########
+    location /.well-known/acme-challenge/ {
+        # This path is bind mounted (see more in compose.yaml).
+        root /var/www/certbot;
+    }
+    ######## Let's Encrypt and certbot ########
+
     location / {
         proxy_set_header Host $http_host;
         # proxy_set_header X-Real-IP $remote_addr;
