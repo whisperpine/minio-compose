@@ -19,6 +19,32 @@ server {
     proxy_buffering off;
     proxy_request_buffering off;
 
+    ######## Let's Encrypt and certbot ########
+    location /.well-known/acme-challenge/ {
+        # This path is bind mounted (see more in compose.yaml).
+        root /var/www/certbot;
+    }
+    ######## Let's Encrypt and certbot ########
+
+    location / {
+        # This will redirect all the http requests arrived on given domain to https.
+        return 301 https://$MINIO_API_DOMAIN$request_uri;
+    }
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name $MINIO_API_DOMAIN;
+
+    # Disables emitting nginx version on error pages
+    # and in the "Server" response header field.
+    server_tokens off;
+
+    ssl_certificate /etc/nginx/ssl/live/$MINIO_API_DOMAIN/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/$MINIO_API_DOMAIN/privkey.pem;
+
     location / {
         proxy_set_header Host $http_host;
         # proxy_set_header X-Real-IP $remote_addr;
