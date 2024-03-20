@@ -3,7 +3,6 @@
         "LICENSE": "plaintext",
         "**/*.env": "ini",
         "nginx.conf": "nginx",
-        "**/conf.d/*.conf": "nginx",
         "**/*.conf.template": "nginx",
     },
     "files.readonlyInclude": {

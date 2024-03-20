@@ -28,7 +28,7 @@ server {
 
     location / {
         # This will redirect all the http requests arrived on given domain to https.
-        return 301 https://$MINIO_API_DOMAIN$request_uri;
+        return 301 https://$server_name$request_uri;
     }
 }
 
@@ -53,18 +53,18 @@ server {
     proxy_buffering off;
     proxy_request_buffering off;
 
-    ssl_certificate /etc/nginx/ssl/live/$MINIO_API_DOMAIN/fullchain.pem;
-    ssl_certificate_key /etc/nginx/ssl/live/$MINIO_API_DOMAIN/privkey.pem;
+    ssl_certificate /etc/nginx/ssl/live/$server_name/fullchain.pem;
+    ssl_certificate_key /etc/nginx/ssl/live/$server_name/privkey.pem;
 
     location / {
         proxy_set_header Host $http_host;
-        # proxy_set_header X-Real-IP $remote_addr;
-        # proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        # proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
 
         proxy_http_version 1.1;
-        # proxy_set_header Connection "";
-        # chunked_transfer_encoding off;
+        proxy_set_header Connection "";
+        chunked_transfer_encoding off;
 
         proxy_pass http://minio:9000;
     }
