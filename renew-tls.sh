@@ -2,10 +2,6 @@
 
 # run this script to renew tls certs.
 
-# it's recommended to add the following lines in crontab:
-# renew every 2 months (on the first day of the month).
-# 0 0 1 */2 * cd [this-repository] && sh renew-tls.sh
-
 # get env vars.
 . ./.env
 # echo $MINIO_CONSOLE_DOMAIN
