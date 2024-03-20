@@ -15,7 +15,6 @@ green_echo() {
 }
 
 ######### dry-run #########>
-
 sudo $DOCKER_COMPOSE run --rm \
     certbot certonly --webroot \
     --webroot-path /var/www/certbot/ \
@@ -53,7 +52,6 @@ green_echo "dummy tls certifates have been deleted"
 ######### rm dummy files #########<
 
 ######### apply #########>
-
 sudo $DOCKER_COMPOSE run --rm \
     certbot certonly --webroot \
     --webroot-path /var/www/certbot/ \
@@ -81,7 +79,6 @@ if [ $? -ne 0 ]; then
     red_echo "$MINIO_API_DOMAIN"
     exit 1
 fi
-
 ######### apply #########<
 
 ######### reload nginx #########<
