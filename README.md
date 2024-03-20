@@ -4,11 +4,11 @@ Deploy [MinIO](https://min.io/) with Docker Compose.
 
 ## Get Started
 
-- config env vars
-- setup cloudflare by terraform
-- docker compose up -d
-- sh apply-tls.sh
-- setup crontab
+- setup infrastructure by [terraform](./terraform/README.md).
+- config env vars in `.env` file.
+- run `docker compose up -d`.
+- run `sh apply-tls.sh`.
+- setup crontab (see [below](#certbot)).
 
 ## Notes
 
@@ -26,6 +26,8 @@ Thus specify the command by `DOCKER_COMPOSE` env var in `.env` file.
 [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 provides a secure way to host without a publicly IP address.\
 It's recommended to set up infrastructures like Cloudflare Tunnel by [Terraform](https://www.terraform.io/).
+
+See more in [terraform/README.md](./terraform/README.md).
 
 ### Nginx
 
