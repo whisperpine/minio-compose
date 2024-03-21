@@ -26,7 +26,7 @@ sudo $DOCKER_COMPOSE run --rm \
 
 if [ $? -ne 0 ]; then
     red_echo "failed to apply tls certificates for:"
-    red_echo "$MINIO_CONSOLE_DOMAIN"
+    red_echo $MINIO_CONSOLE_DOMAIN
     exit 1
 fi
 
@@ -41,7 +41,7 @@ sudo $DOCKER_COMPOSE run --rm \
 
 if [ $? -ne 0 ]; then
     red_echo "failed to apply tls certificates for:"
-    red_echo "$MINIO_API_DOMAIN"
+    red_echo $MINIO_API_DOMAIN
     exit 1
 fi
 ######### dry-run #########<
@@ -62,7 +62,7 @@ sudo $DOCKER_COMPOSE run --rm \
 
 if [ $? -ne 0 ]; then
     red_echo "failed to apply tls certificates for:"
-    red_echo "$MINIO_CONSOLE_DOMAIN"
+    red_echo $MINIO_CONSOLE_DOMAIN
     exit 1
 fi
 
@@ -76,12 +76,13 @@ sudo $DOCKER_COMPOSE run --rm \
 
 if [ $? -ne 0 ]; then
     red_echo "failed to apply tls certificates for:"
-    red_echo "$MINIO_API_DOMAIN"
+    red_echo $MINIO_API_DOMAIN
     exit 1
 fi
 ######### apply #########<
 
 ######### reload nginx #########<
+sudo $DOCKER_COMPOSE exec nginx chown -R nginx:nginx /etc/nginx/ssl/
 sudo $DOCKER_COMPOSE exec nginx nginx -s reload
 
 if [ $? -ne 0 ]; then
