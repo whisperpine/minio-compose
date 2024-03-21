@@ -14,10 +14,6 @@ terraform {
   }
 }
 
-locals {
-  yahaha = "nice"
-}
-
 # cloudflare/cloudflare provider docs:
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs
 provider "cloudflare" {
