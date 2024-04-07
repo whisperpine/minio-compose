@@ -1,2 +1,7 @@
 /.env
 /conf.d
+
+# nodejs
+/node_modules
+/pnpm-lock.yaml
+/package-lock.json
