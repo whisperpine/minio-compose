@@ -7,6 +7,13 @@
 # echo $MINIO_CONSOLE_DOMAIN
 # echo $MINIO_API_DOMAIN
 
+red_echo() {
+    echo -e "\033[31m$@\033[0m"
+}
+green_echo() {
+    echo -e "\033[32m$@\033[0m"
+}
+
 ######### dry-run #########>
 sudo $DOCKER_COMPOSE run --rm certbot renew --dry-run
 
