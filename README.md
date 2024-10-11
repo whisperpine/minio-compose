@@ -56,6 +56,6 @@ To reduce manual work, it's recommended to config `crontab` in the host system.
 # run the following command in the root path of this repo.
 sudo tee /etc/cron.d/minio-compose << EOF
 # renew every 2 months (on the first day of the month).
-0 0 1 */2 * cd $(pwd) && sh helper.sh renew
+0 0 1 */2 * root cd $(pwd) && sh helper.sh renew
 EOF
 ```
