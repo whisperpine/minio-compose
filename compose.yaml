@@ -1,8 +1,7 @@
 services:
-
   minio:
     image: minio/minio:latest
-    restart: always
+    restart: unless-stopped
     networks:
       - inner
     volumes:
@@ -24,14 +23,14 @@ services:
 
   cloudflared:
     image: cloudflare/cloudflared:latest
-    restart: always
+    restart: unless-stopped
     networks:
       - inner
     command: tunnel --no-autoupdate run --token ${CLOUDFLARED_TOKEN}
 
   nginx:
     image: nginx:stable
-    restart: always
+    restart: unless-stopped
     depends_on:
       - cloudflared
     networks:
