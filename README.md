@@ -18,7 +18,7 @@ with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certb
 ### Docker Compose
 
 Edit `.env` to configure env vars available in `compose.yaml`.
-Duplicate [template.env](./template.env) as `.env` to get started.
+Duplicate [example.env](./example.env) as `.env` to get started.
 
 Due to historical reasons, the command for docker compose differs.
 It can be either `docker compose` (new) or `docker-compose` (old).
