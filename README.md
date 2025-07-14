@@ -38,7 +38,7 @@ and the result of executing `envsubst` will be output to `/etc/nginx/conf.d/`.
 Refer to [Using environment variables in nginx configuration (new in 1.19)](https://hub.docker.com/_/nginx#:~:text=Using%20environment%20variables%20in%20nginx%20configuration%20(new%20in%201.19)).
 
 Scripts under `/docker-entrypoint.d` are automatically executed by nginx
-container. [dummy-tls.sh](./shell/dummy-tls.sh) is mounted there for creating
+container. [dummy-tls.sh](./scripts/dummy-tls.sh) is mounted there for creating
 dummy tls certs to prevent nginx crash loop. The dummy tls certs will be
 replaced by eligible ones after running `sh helper.sh apply`.
 
@@ -47,14 +47,14 @@ to apply and renew tls certificates.
 
 ### Certbot
 
-[apply-tls.sh](./shell/apply-tls.sh) and [renew-tls.sh](./shell/renew-tls.sh)
+[apply-tls.sh](./scripts/apply-tls.sh) and [renew-tls.sh](./scripts/renew-tls.sh)
 are helper scripts to simplify TLS certs management.
 Both of them will source the environment variables defined in `.env` file.
 
-[apply-tls.sh](./shell/apply-tls.sh) will probably be executed only once
+[apply-tls.sh](./scripts/apply-tls.sh) will probably be executed only once
 (if everything's ok in [Get Started](#get-started)).
 
-[renew-tls.sh](./shell/renew-tls.sh) should be executed repeatedly before tls
+[renew-tls.sh](./scripts/renew-tls.sh) should be executed repeatedly before tls
 certs expire (no more than 3 months). To reduce manual work, it's recommended to
 config `crontab` in the host OS:
 

@@ -43,7 +43,7 @@ services:
     volumes:
       - ./templates:/etc/nginx/templates:ro
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./shell/dummy-tls.sh:/docker-entrypoint.d/dummy-tls.sh:ro
+      - ./scripts/dummy-tls.sh:/docker-entrypoint.d/dummy-tls.sh:ro
       - acme-challenge:/var/www/certbot:ro
       - letsencrypt:/etc/nginx/ssl
     environment:
