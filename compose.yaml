@@ -1,3 +1,15 @@
+networks:
+  inner:
+  macvlan:
+    name: macvlan
+    driver: macvlan
+    external: true
+
+volumes:
+  minio-data:
+  acme-challenge:
+  letsencrypt:
+
 services:
   minio:
     image: minio/minio:latest
@@ -57,15 +69,3 @@ services:
     volumes:
       - acme-challenge:/var/www/certbot
       - letsencrypt:/etc/letsencrypt
-
-networks:
-  inner:
-  macvlan:
-    name: macvlan
-    driver: macvlan
-    external: true
-
-volumes:
-  minio-data:
-  acme-challenge:
-  letsencrypt:
