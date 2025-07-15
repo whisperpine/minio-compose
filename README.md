@@ -1,4 +1,4 @@
-# MinIO Compose
+# MinIO Docker Compose
 
 Deploy [MinIO](https://min.io/) with Docker Compose,
 proxied by [Nginx](https://github.com/nginx/nginx),
@@ -6,7 +6,8 @@ with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certb
 
 ## Get Started
 
-- setup infrastructure by [terraform](./terraform/README.md).
+- setup infrastructure by [Terraform](https://github.com/hashicorp/terraform)
+  or [OpenTofu](https://github.com/opentofu/opentofu).
 - config environment variables in `.env` file.
 - run `docker compose up -d` to start services.
 - run `sh helper.sh apply` to apply tls certs.
@@ -29,7 +30,7 @@ Thus specify the command by `DOCKER_COMPOSE` env var in `.env` file.
 [Cloudflare Tunnel](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/)
 provides a secure way to host without a publicly IP address.
 It's recommended to set up infrastructures like Cloudflare Tunnel by [Terraform](https://www.terraform.io/).
-See [terraform/README.md](./terraform/README.md) for more details.
+See [infra/README.md](./infra/README.md) for more details.
 
 ### Nginx
 
