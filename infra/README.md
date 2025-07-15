@@ -1,22 +1,25 @@
-# README
+# Infrastructure as Code
 
-Setup Cloudflare Tunnel by Terraform.
+Setup Cloudflare Tunnel by
+[Terraform](https://github.com/hashicorp/terraform)
+or [OpenTofu](https://github.com/opentofu/opentofu).
 
 ## Prerequisites
 
 - A domain hosted by Cloudflare DNS.
 - An organization on Cloudflare Zero Trust.
+- OpenTofu or Terraform is installed.
+(Commands use `tofu` or `terraform` interchangeably hereafter).
 
 ## Get Started
 
-Create an API Token with [proper permissions](#api-token).\
-Configure variables in `terraform.tfvars` file (create if missing).\
+Create an API Token with [proper permissions](#api-token).
 Run the following commands:
 
 ```sh
-cd [terraform-dir]
-docker compose run terraform init
-docker compose run terraform apply -auto-approve
+cd INFRA_DIR
+tofu init
+tofu apply -auto-approve
 ```
 
 ## API Token
@@ -34,14 +37,15 @@ API Token minimal permissions:
 Run the following command to get tunnel token:
 
 ```sh
-cd [terraform-dir]
-docker compose run terraform output tunnel_token
+cd INFRA_DIR
+tofu output tunnel_token
 ```
 
 Tunnel Token should be assigned to `CLOUDFLARED_TOKEN` in `.env` file.
+Docker will read values from `.env` file when sourcing `compose.yaml`.
 
 ## References
 
-- [Deploy Tunnels with Terraform - Cloudflare Docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/deploy-tunnels/deployment-guides/terraform/)
-- [Cloudflare Terraform - Cloudflare Docs](https://developers.cloudflare.com/terraform/)
-- [Cloudflare Provider - Terraform Registry](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs)
+- [Cloudflare Terraform - Cloudflare Docs](https://developers.cloudflare.com/terraform/).
+- [Deploy Tunnels with Terraform - Cloudflare Docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/deployment-guides/terraform/).
+- [Cloudflare Provider - Terraform Registry](https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs).
