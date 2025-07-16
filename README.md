@@ -15,30 +15,32 @@ flowchart LR
   private("Access from LAN")
   cf("Cloudflare edge nodes")
 
-  pub -.- cf
+  pub -.-> cf
   cf ---|tunnel| cloudflared
 
   subgraph Docker Compose
     cloudflared("Cloudflared")
     nginx("Nginx")
-    minio("MinIO")
+    minio("MinIO"):::red_stroke
 
     cloudflared --- nginx
     nginx --- minio
   end
 
-  private -...- nginx
+  private -...-> nginx
+
+  classDef red_stroke stroke: #f66
 ```
 
 ## Get Started
 
-- setup infrastructure by [Terraform](https://github.com/hashicorp/terraform)
+- Setup infrastructure by [Terraform](https://github.com/hashicorp/terraform)
   or [OpenTofu](https://github.com/opentofu/opentofu).
-- config environment variables in `.env` file (referto [example.env](./example.env)).
-- run `docker compose up -d` to spin up services.
-- run `sh helper.sh apply` to apply tls certs for the first time.
-- run `sh helper.sh renew` to check if renewal works.
-- config cron to automatically renew tls certs (see [below](#certbot)).
+- Config environment variables in `.env` file (referto [example.env](./example.env)).
+- Run `docker compose up -d` to spin up services.
+- Run `sh helper.sh apply` to apply tls certs for the first time.
+- Run `sh helper.sh renew` to check if renewal works.
+- Config cron to automatically renew tls certs (see [below](#certbot)).
 
 ## Docker Compose
 
