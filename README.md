@@ -8,9 +8,9 @@ with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certb
 
 - setup infrastructure by [Terraform](https://github.com/hashicorp/terraform)
   or [OpenTofu](https://github.com/opentofu/opentofu).
-- config environment variables in `.env` file.
-- run `docker compose up -d` to start services.
-- run `sh helper.sh apply` to apply tls certs.
+- config environment variables in `.env` file (referto [example.env](./example.env)).
+- run `docker compose up -d` to spin up services.
+- run `sh helper.sh apply` to apply tls certs for the first time.
 - run `sh helper.sh renew` to check if renewal works.
 - config cron to automatically renew tls certs (see [below](#certbot)).
 
