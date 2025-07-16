@@ -4,6 +4,32 @@ Deploy [MinIO](https://min.io/) with Docker Compose,
 proxied by [Nginx](https://github.com/nginx/nginx),
 with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certbot).
 
+If you want to self-host an S3 compatible object storage service in your office
+or home lab, and access from anywhere, with zero cloud cost, you come to the
+right place. While this repo is opinionated and tailored for my use cases, it
+may help you get started as a heuristic reference.
+
+```mermaid
+flowchart LR
+  pub("Access from WAN")
+  private("Access from LAN")
+  cf("Cloudflare edge nodes")
+
+  pub -.- cf
+  cf ---|tunnel| cloudflared
+
+  subgraph Docker Compose
+    cloudflared("Cloudflared")
+    nginx("Nginx")
+    minio("MinIO")
+
+    cloudflared --- nginx
+    nginx --- minio
+  end
+
+  private -...- nginx
+```
+
 ## Get Started
 
 - setup infrastructure by [Terraform](https://github.com/hashicorp/terraform)
@@ -14,9 +40,7 @@ with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certb
 - run `sh helper.sh renew` to check if renewal works.
 - config cron to automatically renew tls certs (see [below](#certbot)).
 
-## Notes
-
-### Docker Compose
+## Docker Compose
 
 Edit `.env` to configure env vars available in `compose.yaml`.
 Duplicate [example.env](./example.env) as `.env` to get started.
@@ -24,6 +48,8 @@ Duplicate [example.env](./example.env) as `.env` to get started.
 Due to historical reasons, the command for docker compose differs.
 It can be either `docker compose` (new) or `docker-compose` (old).
 Thus specify the command by `DOCKER_COMPOSE` env var in `.env` file.
+
+## Services
 
 ### Cloudflare Tunnel
 
