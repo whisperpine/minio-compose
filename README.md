@@ -1,7 +1,7 @@
 # MinIO Docker Compose
 
-Deploy [MinIO](https://min.io/) with Docker Compose,
-proxied by [Nginx](https://github.com/nginx/nginx),
+Deploy [MinIO](https://min.io/) by docker compose.
+Get proxied by [Nginx](https://github.com/nginx/nginx),
 with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certbot).
 
 If you want to self-host an S3 compatible object storage service in your office
@@ -22,14 +22,17 @@ flowchart LR
     cloudflared("Cloudflared")
     nginx("Nginx")
     minio("MinIO"):::red_stroke
+    certbot("Certbot")
 
     cloudflared --- nginx
     nginx --- minio
+    nginx -.- certbot
   end
 
   private -...-> nginx
 
   classDef red_stroke stroke: #f66
+  style certbot stroke-dasharray: 2
 ```
 
 ## Get Started
