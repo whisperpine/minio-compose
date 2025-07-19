@@ -1,4 +1,9 @@
+# --------------------
+# module: cloudflare_tunnel
+# --------------------
+
 output "tunnel_token" {
-  value     = module.cloudflare_tunnel.tunnel_token
-  sensitive = true
+  description = "Cloudflare Tunnel token, which should be assigned to CLOUDFLARED_TOKEN in .env"
+  value       = module.cloudflare_tunnel.tunnel_token
+  sensitive   = true
 }

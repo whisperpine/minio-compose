@@ -1,7 +1,7 @@
 # sops_file data docs:
 # https://registry.terraform.io/providers/carlpett/sops/latest/docs/data-sources/file
 data "sops_file" "default" {
-  source_file = "encrypted.tfvars.json"
+  source_file = "encrypted.${terraform.workspace}.json"
 }
 
 locals {
