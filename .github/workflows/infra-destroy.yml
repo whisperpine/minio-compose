@@ -9,6 +9,7 @@ on:
         type: choice
         options:
           - "default"
+          - "dev"
 
 jobs:
   tofu-plan:
