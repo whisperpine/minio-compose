@@ -2,9 +2,8 @@
 
 Setup Cloudflare Tunnel by
 [Terraform](https://github.com/hashicorp/terraform)
-or [OpenTofu](https://github.com/opentofu/opentofu).
-
-Terraform and OpenTofu can be used interchangeably at the moment.
+or [OpenTofu](https://github.com/opentofu/opentofu)
+(which can be used interchangeably at the moment).
 
 ## Terraform Modules
 
@@ -16,7 +15,7 @@ Terraform and OpenTofu can be used interchangeably at the moment.
 
 [Terraform S3 backend](https://developer.hashicorp.com/terraform/language/backend/s3)
 is used in this repo (the actual backend is Cloudflare R2 which is
-s3-compatibal). Hence a Cloudflare R2 bucket should be created beforehand, as
+S3-compatibal). Hence a Cloudflare R2 bucket should be created beforehand, as
 well as an API Token with write permission to the bucket.
 Refer to [Remote R2 backend - Cloudflare Docs](https://developers.cloudflare.com/terraform/advanced-topics/remote-backend/).
 
