@@ -1,5 +1,11 @@
 # MinIO Docker Compose
 
+[![minio](https://img.shields.io/badge/MinIO-C72E49?logo=minio&logoColor=white)](https://min.io/)
+[![license](https://img.shields.io/github/license/whisperpine/minio-compose)](https://github.com/whisperpine/minio-compose/blob/main/LICENSE)
+[![checks](https://img.shields.io/github/actions/workflow/status/whisperpine/minio-compose/checks.yml?logo=github&label=checks)](https://github.com/whisperpine/minio-compose/actions/workflows/checks.yml)
+[![infra-default](https://img.shields.io/github/deployments/whisperpine/minio-compose/infra-default?logo=github&label=infra-default)](https://github.com/whisperpine/minio-compose/deployments/infra-default)
+[![release](https://img.shields.io/github/v/release/whisperpine/minio-compose?logo=github)](https://github.com/whisperpine/minio-compose/releases)
+
 Deploy [MinIO](https://min.io/) by docker compose.
 Get proxied by [Nginx](https://github.com/nginx/nginx),
 with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certbot).
