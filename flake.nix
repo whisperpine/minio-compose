@@ -22,7 +22,11 @@
         {
           default = pkgs.mkShell {
             # The Nix packages provided in the environment.
-            packages = with pkgs; [ opentofu ];
+            packages = with pkgs; [
+              opentofu # infrastructure as code
+              sops # simple tool for managing secrets
+              git-cliff # changelog generator
+            ];
           };
         }
       );
