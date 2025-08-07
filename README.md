@@ -10,10 +10,10 @@ Deploy [MinIO](https://min.io/) by docker compose.
 Get proxied by [Nginx](https://github.com/nginx/nginx),
 with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certbot).
 
-If you want to self-host an S3 compatible object storage service in your office
-or home lab, and access from anywhere, with zero cloud cost, you come to the
-right place. While this repo is opinionated and tailored for my use cases, it
-may help you get started as a heuristic reference.
+If you want to self-host an AWS S3-compatible object storage service in your
+office or home lab, and access from anywhere, with zero cloud cost, you come to
+the right place. While this repository is opinionated and tailored for my use
+cases, it may help you get started as a heuristic reference.
 
 ```mermaid
 flowchart LR
