@@ -15,10 +15,10 @@ set -e
 # echo $MINIO_API_DOMAIN
 
 red_echo() {
-    printf "\033[31m%s\033[0m" "$*"
+  printf "\033[31m%s\033[0m" "$*"
 }
 green_echo() {
-    printf "\033[32m%s\033[0m" "$*"
+  printf "\033[32m%s\033[0m" "$*"
 }
 
 # ------------------------------

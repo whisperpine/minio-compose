@@ -2,12 +2,12 @@
 
 case $1 in
 apply)
-    sh ./scripts/apply-tls.sh
-    ;;
+  sh ./scripts/apply-tls.sh
+  ;;
 renew)
-    sh ./scripts/renew-tls.sh
-    ;;
+  sh ./scripts/renew-tls.sh
+  ;;
 *)
-    echo "Usage: sh helper.sh [apply|renew]"
-    ;;
+  echo "Usage: sh helper.sh [apply|renew]"
+  ;;
 esac
