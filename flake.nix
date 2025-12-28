@@ -29,7 +29,7 @@
               trivy # scan security issues
             ];
             # The shell script executed when the environment is activated.
-            shellHook = ''
+            shellHook = /* sh */ ''
               # Print the last modified date of "flake.lock".
               stat flake.lock | grep "Modify" |
                 awk '{printf "\"flake.lock\" last modified on: %s", $2}' &&
