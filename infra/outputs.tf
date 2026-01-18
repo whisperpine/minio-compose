@@ -1,6 +1,6 @@
-# --------------------
+# ------------------------- #
 # module: cloudflare_tunnel
-# --------------------
+# ------------------------- #
 
 output "tunnel_token" {
   description = "Cloudflare Tunnel token, which should be assigned to CLOUDFLARED_TOKEN in .env"
