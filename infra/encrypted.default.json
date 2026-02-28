@@ -3,7 +3,7 @@
   "cloudflare_zone": "ENC[AES256_GCM,data:B45is5SSsIvtDmyj,iv:CNtxvMkBO4eoXnVHS0b0KWyRrpNtb+QLpHG/hMhigVI=,tag:meRQESCVePurVWmXicg0dQ==,type:str]",
   "cloudflare_zone_id": "ENC[AES256_GCM,data:NtA615vad9p7oWlPJ53TqWx6wYLkvqctUAApf1n1Y7E=,iv:Zh4Js0aNy47s88yJ50RWVqSsKlBHg1FJ77Kc0aWAINo=,tag:FHAgo/ovS9YxC8BgM6bBHg==,type:str]",
   "cloudflare_account_id": "ENC[AES256_GCM,data:vLB6E9gKAusR1gybiDF8KguMV4fgcxW4Wzcac5tg9NE=,iv:j1sAApeOYbC17SzLNkfldBlbEnkAu9DANUmytV+eyZI=,tag:88Wl8uWsdGhn/dxckT/EYg==,type:str]",
-  "cloudflare_tunnel_name": "ENC[AES256_GCM,data:abVwEx4G5xy7CjlS71IjeJff,iv:2WXXMx1i3hMYLABMzgbl8013U+aYJGdJZX0bUCmNkfE=,tag:BvgsJjrD57+yk0aGjKfyrg==,type:str]",
+  "cloudflare_tunnel_name": "ENC[AES256_GCM,data:ZHpI69EkLZaCFuAs+SyJizuY,iv:9HktYiioukq8KH7vYzgsD/zb1ykM0VkTBkw8QtOmrMg=,tag:VRvZn34mljKRORo2Op1+OA==,type:str]",
   "dns_record_prefix_console": "ENC[AES256_GCM,data:0zefxOjOrPU9M7kicw==,iv:QdIQUUtpPMu/rqkB/Dgbq+fwMMeFMug8ZP23+SuZGE4=,tag:0e5DpG3ygdmQW/I8+N5mdg==,type:str]",
   "dns_record_prefix_api": "ENC[AES256_GCM,data:eSnhrLL60kWF,iv:cVMiOx0bgR7TcJmeLC2BVsPeuVFhUaJP4A3HK3sBDNQ=,tag:jdi/ooJT34nflHYoiGVrFw==,type:str]",
   "sops": {
@@ -17,9 +17,9 @@
         "enc": "-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBIM2ppVjBNQXZjVithVUlL\naEZxWXFsS1dic2IrbklsVzRYRnZMTEM2K2lrClJhZkpIQU94ZGxTK2NmZVFlc2lr\neFlIRndNQ1JyMFNLbG1oSFJMS3NSOXcKLS0tIE9OYnJ2blM2R3pCUUVGRGZPSDIr\nNjZBNFdudm9nZUoyUU5oeGthZGJDOWMKRWODVIeTkVQWKXwXb6smFQvkFPrI/wGt\ntINeTH89E0pKGtBwvS+AsW6tbTY0IL3YAu4wI6guWtuxsDKzMTdFLQ==\n-----END AGE ENCRYPTED FILE-----\n"
       }
     ],
-    "lastmodified": "2025-10-02T12:40:43Z",
-    "mac": "ENC[AES256_GCM,data:6NNghuqbEfX2oEU3kgQCaMnQWFHCJqq+Q8rkaBS1meTnIVGjXMD0yYMpUTFBh4S4ywoZBFrKObzljyKSe6DvETAL3sVNq7j/DMWBjAuWiiAaJQPqkVYQbuXKgdLlrKFVXWr4JbBrcVD9qyaxsuUqFehIoOqIUziCvIaRmk5EWtM=,iv:1GyHhL91PdhjtG+ReHG4lmDm+T0gDe529XZkrOUtNa4=,tag:WP5Os5ieJZSVrUNQbFi/9Q==,type:str]",
+    "lastmodified": "2026-02-28T17:18:20Z",
+    "mac": "ENC[AES256_GCM,data:4hcJgDsVHbQJg6tilJ/Puh5Fzx+sVaZubKAIZ+VAKZphmBHT/gQsOPNl5eUWgQznPhuCm9tNpg+hGZx8LO5Anh9MrIn7j37pCzbzmRAUv2kghq09u52S7+7sTGg7QuIKJb0LsDb68Wyzr1A3lZhVm3RDmwyLAPRlzg+73kFRXEA=,iv:zLI9AzBrpDFQ31Os8SS+T2EPrChlsi14ybrxPivBCpY=,tag:yUyYXgMVkuWnyK9eXK7ZZw==,type:str]",
     "unencrypted_suffix": "_unencrypted",
-    "version": "3.10.2"
+    "version": "3.12.0"
   }
 }
