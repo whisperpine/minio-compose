@@ -23,7 +23,7 @@ data "cloudflare_zero_trust_tunnel_cloudflared_token" "default" {
 # https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/record
 resource "cloudflare_dns_record" "console" {
   zone_id = var.cloudflare_zone_id
-  name    = var.dns_record_prefix_console
+  name    = "${var.dns_record_prefix_console}.${var.cloudflare_zone}"
   content = "${cloudflare_zero_trust_tunnel_cloudflared.default.id}.cfargotunnel.com"
   comment = "minio console server"
   type    = "CNAME"
@@ -50,24 +50,24 @@ resource "cloudflare_zero_trust_tunnel_cloudflared_config" "default" {
   config = {
     ingress = [
       {
-        hostname = "${cloudflare_dns_record.console.name}.${var.cloudflare_zone}"
+        hostname = cloudflare_dns_record.console.name
         service  = "http://nginx:80"
         path     = ".well-known/acme-challenge/"
       },
       {
-        hostname = "${cloudflare_dns_record.console.name}.${var.cloudflare_zone}"
+        hostname = cloudflare_dns_record.console.name
         service  = "https://nginx:443"
         origin_request = {
           no_tls_verify = true
         }
       },
       {
-        hostname = "${cloudflare_dns_record.api.name}.${var.cloudflare_zone}"
+        hostname = cloudflare_dns_record.api.name
         service  = "http://nginx:80"
         path     = ".well-known/acme-challenge/"
       },
       {
-        hostname = "${cloudflare_dns_record.api.name}.${var.cloudflare_zone}"
+        hostname = cloudflare_dns_record.api.name
         service  = "https://nginx:443"
         origin_request = {
           no_tls_verify = true
