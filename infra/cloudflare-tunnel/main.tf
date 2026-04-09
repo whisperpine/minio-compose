@@ -42,7 +42,7 @@ resource "cloudflare_dns_record" "api" {
   ttl     = 1 # setting to 1 means automatic
 }
 
-# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/tunnel_config
+# https://registry.terraform.io/providers/cloudflare/cloudflare/latest/docs/resources/zero_trust_tunnel_cloudflared
 resource "cloudflare_zero_trust_tunnel_cloudflared_config" "default" {
   tunnel_id  = cloudflare_zero_trust_tunnel_cloudflared.default.id
   account_id = var.cloudflare_account_id
