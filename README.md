@@ -6,6 +6,11 @@
 [![infra-default](https://img.shields.io/github/deployments/whisperpine/minio-compose/infra-default?logo=github&label=infra-default)](https://github.com/whisperpine/minio-compose/deployments/infra-default)
 [![release](https://img.shields.io/github/v/release/whisperpine/minio-compose?logo=github)](https://github.com/whisperpine/minio-compose/releases)
 
+> [!WARNING]
+> Minio has stopped maintenance and removed the official container image from
+> Docker Hub. This repository no longer works. Please consider other open source
+> object storage solutions like [rustfs](https://github.com/rustfs/rustfs).
+
 Deploy [MinIO](https://min.io/) by docker compose.
 Get proxied by [Nginx](https://github.com/nginx/nginx),
 with TLS certificates auto renewed by [Certbot](https://github.com/certbot/certbot).
@@ -35,7 +40,7 @@ flowchart LR
     nginx -.- certbot
   end
 
-  private -...-> nginx
+  private -..-> nginx
 
   classDef red_stroke stroke: #f66
   style certbot stroke-dasharray: 2
